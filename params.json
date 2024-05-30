@@ -15,7 +15,8 @@
   "additionalDashboardUsers": {
     "users": []
   },
-  "tutorialProject": false,
+  "tutorialProject": true,
+  "tutorialId": "DKU_CLEANING_CONTACTS",
   "settings": {
     "flowAnchorSourcesAndSinks": true,
     "flowDisplaySettings": {
@@ -137,7 +138,8 @@
     },
     "dkuProperties": []
   },
-  "name": "Cleaning Contacts",
+  "name": "Cleaning Contacts for Jonathan DOYLE",
+  "projectStatus": "Sandbox",
   "imgPattern": 1,
   "metrics": {
     "probes": [],
