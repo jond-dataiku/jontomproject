@@ -1,0 +1,145 @@
+{
+  "checklists": {
+    "checklists": []
+  }, 
+  "customMeta": {
+    "kv": {}
+  }, 
+  "flowOptions": {
+    "crossProjectBuildBehavior": "DEFAULT", 
+    "rebuildBehavior": "NORMAL"
+  }, 
+  "formatParams": {
+    "arrayMapFormat": "json", 
+    "charset": "utf8", 
+    "compress": "", 
+    "dateSerializationFormat": "ISO", 
+    "escapeChar": "\\", 
+    "hiveSeparators": [
+      "\u0002", 
+      "\u0003", 
+      "\u0004", 
+      "\u0005", 
+      "\u0006", 
+      "\u0007", 
+      "\b"
+    ], 
+    "normalizeDoubles": false, 
+    "parseHeaderRow": true, 
+    "probableNumberOfRecords": 15, 
+    "quoteChar": "\"", 
+    "separator": ",", 
+    "skipRowsAfterHeader": 0, 
+    "skipRowsBeforeHeader": 0, 
+    "style": "excel"
+  }, 
+  "formatType": "csv", 
+  "managed": false, 
+  "metrics": {
+    "probes": []
+  }, 
+  "params": {}, 
+  "partitioning": {
+    "dimensions": [], 
+    "ignoreNonMatchingFile": false
+  }, 
+  "schema": {
+    "columns": [
+      {
+        "maxLength": -1, 
+        "name": "name", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "address", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "city", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "state", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "zip", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "phone", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "email", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "work", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "work address", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "work city", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "work state", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "work zipcode", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "work phone", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "work email", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }, 
+      {
+        "maxLength": -1, 
+        "name": "account created on", 
+        "timestampNoTzAsDate": false, 
+        "type": "string"
+      }
+    ], 
+    "userModified": false
+  }, 
+  "tags": [
+    "creator_admin"
+  ], 
+  "type": "UploadedFiles"
+}

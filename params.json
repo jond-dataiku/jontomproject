@@ -1,0 +1,209 @@
+{
+  "dashboardAuthorizations": {
+    "allAuthorized": false,
+    "authorizations": []
+  },
+  "exposedObjects": {
+    "objects": []
+  },
+  "projectType": "REGULAR",
+  "projectAppType": "REGULAR",
+  "hasSetupSection": false,
+  "owner": "jonathan.doyle@dataiku.com",
+  "permissionsVersion": "LEGACY",
+  "permissions": [],
+  "additionalDashboardUsers": {
+    "users": []
+  },
+  "tutorialProject": false,
+  "settings": {
+    "flowAnchorSourcesAndSinks": true,
+    "flowDisplaySettings": {
+      "zonesGraphRenderingAlgorithm": "DOT_OLDRANK",
+      "zonesGraphConnectZones": true,
+      "zonesGraphForJobs": true
+    },
+    "gitCommitMode": "AUTO",
+    "disableAutomaticTriggers": false,
+    "integrations": {
+      "integrations": []
+    },
+    "flowBuildSettings": {
+      "mergeSparkPipelines": false,
+      "pruneBeforeSparkPipelines": true,
+      "mergeSqlPipelines": false,
+      "pruneBeforeSqlPipelines": true
+    },
+    "sharingRequestsEnabled": "INHERIT",
+    "limitedVisibilityEnabled": "INHERIT",
+    "accessRequestsEnabled": "INHERIT",
+    "limitsSettings": {
+      "memSampleBytes": {
+        "soft": -1,
+        "hard": -1
+      },
+      "shakerMemTableBytes": {
+        "soft": -1,
+        "hard": -1
+      },
+      "attachmentBytes": {
+        "soft": -1,
+        "hard": -1
+      }
+    },
+    "relocationSettings": {
+      "sqlLikeRecipesInitializationMode": "RESOLVED_TABLE_REFERENCES"
+    },
+    "recipeEnginesPreferences": {
+      "forbiddenEngines": [],
+      "enginesPreferenceOrder": [],
+      "forbiddenByRecipeType": {},
+      "preferenceByRecipeType": {}
+    },
+    "codeEnvs": {
+      "python": {
+        "mode": "INHERIT",
+        "preventOverride": false
+      },
+      "r": {
+        "mode": "INHERIT",
+        "preventOverride": false
+      },
+      "julia": {
+        "mode": "INHERIT",
+        "preventOverride": false
+      }
+    },
+    "container": {
+      "containerMode": "NONE"
+    },
+    "containerForVisualRecipesWorkloads": {
+      "containerMode": "INHERIT"
+    },
+    "datasetsCreationSettings": {
+      "useGlobal": true,
+      "preferedStorageFormats": "CSV_ESCAPING_NOGZIP_FORHIVE,CSV_EXCEL_GZIP,PARQUET_HIVE",
+      "virtualizable": false,
+      "allowUploadsWithoutConnection": true
+    },
+    "hiveEngineCreationSettings": {
+      "useGlobal": true,
+      "executionEngine": "HIVECLI_LOCAL"
+    },
+    "sparkEngineCreationSettings": {
+      "useGlobal": true,
+      "executionEngine": "SPARK_SUBMIT",
+      "useGlobalMetastore": false
+    },
+    "impalaEngineCreationSettings": {
+      "useGlobal": true,
+      "streamMode": true
+    },
+    "wikiSettings": {
+      "promoted": true
+    },
+    "cluster": {
+      "clusterMode": "INHERIT"
+    },
+    "k8sCluster": {
+      "clusterMode": "INHERIT"
+    },
+    "virtualWebAppBackendSettings": {
+      "mode": "INHERIT",
+      "preventOverride": false,
+      "infra": {
+        "containerSelection": {
+          "containerMode": "INHERIT"
+        },
+        "overrideGlobalK8sExposition": false,
+        "exposition": {
+          "type": "local_process",
+          "params": {}
+        },
+        "scaling": {
+          "initialReplicas": 1,
+          "progressDeadlineSeconds": 600,
+          "hpa": false,
+          "hpaTargetCPUPercent": 0,
+          "hpaMetrics": [],
+          "hpaMinPods": 0,
+          "hpaMaxPods": 0,
+          "hpaAnnotations": []
+        },
+        "deploymentModifier": {
+          "config": {}
+        }
+      }
+    },
+    "dkuProperties": []
+  },
+  "name": "Cleaning Contacts",
+  "imgPattern": 1,
+  "metrics": {
+    "probes": [],
+    "engineConfig": {
+      "padRunsWithMetrics": false,
+      "hive": {
+        "active": true,
+        "extraConf": []
+      },
+      "basic": {},
+      "dss": {
+        "active": true,
+        "selection": {
+          "useMemTable": false,
+          "filter": {
+            "distinct": false,
+            "enabled": false
+          },
+          "partitionSelectionMethod": "ALL",
+          "latestPartitionsN": 1,
+          "ordering": {
+            "enabled": false,
+            "rules": []
+          },
+          "samplingMethod": "FULL",
+          "maxRecords": -1,
+          "targetRatio": 0.02,
+          "ascending": true,
+          "withinFirstN": -1,
+          "maxReadUncompressedBytes": -1
+        }
+      },
+      "sql": {
+        "active": true
+      },
+      "impala": {
+        "active": true
+      },
+      "spark": {
+        "active": true,
+        "extraConf": []
+      },
+      "python": {}
+    },
+    "displayedState": {
+      "columns": [],
+      "metrics": []
+    }
+  },
+  "metricsChecks": {
+    "runOnBuild": false,
+    "checks": [],
+    "displayedState": {
+      "checks": []
+    }
+  },
+  "description": "This project is based on a fictional [dataset generated](https://github.com/rdempsey/dataiku-posts) by Robert Dempsey.\nYou should definitely read the [blogpost](https://blog.dataiku.com/building-clean-data-pipeline) he wrote to describe his project.\n\u003cbr/\u003e\n\nThe goal of this project is to use the visual preparation recipes in DSS to rework and clean a list of contacts we have so we can make something of it.\n\nWe want to: \n\n1.  clean the names of the contacts and separate first names and last names\n2.  clean phone numbers\n3.  clean postal addresses.\n\n# Explore this sample project\n\nTake a look at the data pipeline (the flow) to see the two successive cleaning recipes.\n\nNote: to make this project easier to understand, we have separated the cleansing in two recipes: first the names then the rest. You can do all of the cleansing in a single recipe for better performance.\n\n\u003cp class\u003d\"text-center\"\u003e\n\u003ca href\u003d\"/projects/DKU_CLEANING_CONTACTS/flow/\"  class\u003d\"btn btn-datasets-color btn-cta-big-mod\"\u003e\u003ci class\u003d\"icon-dku-sample_project\" class\u003d\"btn-cta-big-mod-icon\" /\u003e\u0026nbsp;Flow\u003c/a\u003e\u003cbr/\u003e\u003cbr/\u003e\n\u003c/p\u003e\n\nYou should explore the two recipes in [the flow](/projects/DKU_CLEANING_CONTACTS/flow/) to see all the different ways to use the visual preparation recipes!\n\n\n# Related content\n\nSee the [Dataiku Academy](https://academy.dataiku.com) to learn more about doing data science with DSS.",
+  "shortDesc": "Basic pipeline to clean names, phones and addresses",
+  "tags": [
+    "sample",
+    "gallery",
+    "downloads",
+    "section:Basics"
+  ],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "steps": [
+    {
+      "type": "StringTransformer",
+      "params": {
+        "mode": "TRIM",
+        "truncate_limit": 0,
+        "appliesTo": "SINGLE_COLUMN",
+        "columns": [
+          "name"
+        ]
+      },
+      "metaType": "PROCESSOR",
+      "preview": false,
+      "disabled": false,
+      "alwaysShowComment": false
+    },
+    {
+      "type": "ColumnSplitter",
+      "params": {
+        "inCol": "name",
+        "separator": " ",
+        "outColPrefix": "name_",
+        "keepEmptyChunks": false,
+        "target": "COLUMNS",
+        "limitOutput": false,
+        "limit": 0
+      },
+      "metaType": "PROCESSOR",
+      "preview": false,
+      "disabled": false,
+      "alwaysShowComment": false
+    },
+    {
+      "type": "ColumnRenamer",
+      "params": {
+        "renamings": [
+          {
+            "from": "name_0",
+            "to": "first_name"
+          },
+          {
+            "from": "name_1",
+            "to": "last_name"
+          },
+          {
+            "from": "name",
+            "to": "full_name"
+          }
+        ]
+      },
+      "metaType": "PROCESSOR",
+      "preview": false,
+      "disabled": false,
+      "alwaysShowComment": false
+    }
+  ],
+  "maxProcessedMemTableBytes": -1,
+  "origin": "PREPARE_RECIPE",
+  "columnsSelection": {
+    "mode": "ALL"
+  },
+  "coloring": {
+    "scheme": "MEANING_AND_STATUS",
+    "individualColumns": [],
+    "valueColoringMode": "HASH"
+  },
+  "sorting": [],
+  "analysisColumnData": {},
+  "explorationSampling": {
+    "selection": {
+      "maxStoredBytes": -1,
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "partitionSelectionMethod": "ALL",
+      "latestPartitionsN": 1,
+      "samplingMethod": "HEAD_SEQUENTIAL",
+      "maxRecords": 30000,
+      "targetRatio": 0.02,
+      "withinFirstN": -1,
+      "maxReadUncompressedBytes": -1
+    },
+    "autoRefreshSample": false,
+    "_refreshTrigger": 1
+  },
+  "vizSampling": {
+    "autoRefreshSample": false,
+    "_refreshTrigger": 0
+  },
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "globalSearchQuery": "",
+  "explorationFilters": [],
+  "previewMode": "ALL_ROWS"
+}

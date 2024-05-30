@@ -1,0 +1,463 @@
+{
+  "steps": [
+    {
+      "steps": [
+        {
+          "type": "StringTransformer",
+          "params": {
+            "mode": "TRIM",
+            "truncate_limit": 0,
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "address"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "RegexpExtractor",
+          "params": {
+            "column": "address",
+            "pattern": "(?i)((apt.|suite)\\s\\d*$)",
+            "prefix": "address_line_2",
+            "found_col": false,
+            "extractAllOccurrences": false
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "ColumnsSelector",
+          "params": {
+            "keep": false,
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "address_line_22"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "ColumnRenamer",
+          "params": {
+            "renamings": [
+              {
+                "from": "address",
+                "to": "home_address"
+              }
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "normalization": "EXACT",
+            "matching": "PATTERN",
+            "stopAfterFirstMatch": false,
+            "mapping": [
+              {
+                "from": "(?i)((apt.|suite)\\s\\d*$)",
+                "to": ""
+              }
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "home_address"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "ColumnRenamer",
+          "params": {
+            "renamings": [
+              {
+                "from": "address_line_21",
+                "to": "home_address_line_2"
+              },
+              {
+                "from": "city",
+                "to": "home_city"
+              },
+              {
+                "from": "state",
+                "to": "home_state"
+              },
+              {
+                "from": "zip",
+                "to": "home_zipcode"
+              }
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        }
+      ],
+      "metaType": "GROUP",
+      "preview": false,
+      "disabled": false,
+      "name": "Cleanup home address",
+      "alwaysShowComment": false,
+      "mainColor": "#ff9c00",
+      "secondaryColor": "#f4e0c1"
+    },
+    {
+      "steps": [
+        {
+          "type": "ColumnRenamer",
+          "params": {
+            "renamings": [
+              {
+                "from": "phone",
+                "to": "home_phone"
+              }
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "normalization": "EXACT",
+            "matching": "PATTERN",
+            "stopAfterFirstMatch": false,
+            "mapping": [
+              {
+                "from": "([x]\\d*$)",
+                "to": ""
+              }
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "home_phone"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        }
+      ],
+      "metaType": "GROUP",
+      "preview": false,
+      "disabled": false,
+      "name": "Cleanup home phone",
+      "alwaysShowComment": false,
+      "mainColor": "#ffdc00",
+      "secondaryColor": "#f4edc1"
+    },
+    {
+      "steps": [
+        {
+          "type": "ColumnRenamer",
+          "params": {
+            "renamings": [
+              {
+                "from": "work address",
+                "to": "work_address"
+              }
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "StringTransformer",
+          "params": {
+            "mode": "TRIM",
+            "truncate_limit": 0,
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "work_address"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "RegexpExtractor",
+          "params": {
+            "column": "work_address",
+            "pattern": "(?i)((apt.|suite)\\s\\d*$)",
+            "prefix": "work_address_line_2",
+            "found_col": false,
+            "extractAllOccurrences": false
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "ColumnsSelector",
+          "params": {
+            "keep": false,
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "work_address_line_22"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "normalization": "EXACT",
+            "matching": "PATTERN",
+            "stopAfterFirstMatch": false,
+            "mapping": [
+              {
+                "from": "(?i)((apt.|suite)\\s\\d*$)",
+                "to": ""
+              }
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "work_address"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "ColumnRenamer",
+          "params": {
+            "renamings": [
+              {
+                "from": "work_address_line_21",
+                "to": "work_address_line_2"
+              },
+              {
+                "from": "work city",
+                "to": "work_city"
+              },
+              {
+                "from": "work state",
+                "to": "work_state"
+              },
+              {
+                "from": "work zipcode",
+                "to": "work_zipcode"
+              }
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        }
+      ],
+      "metaType": "GROUP",
+      "preview": false,
+      "disabled": false,
+      "name": "Cleanup work address",
+      "alwaysShowComment": false,
+      "mainColor": "#61c1b0",
+      "secondaryColor": "#d4e7e4"
+    },
+    {
+      "steps": [
+        {
+          "type": "ColumnRenamer",
+          "params": {
+            "renamings": [
+              {
+                "from": "work phone",
+                "to": "work_phone"
+              }
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "RegexpExtractor",
+          "params": {
+            "column": "work_phone",
+            "pattern": "([x][0-9]*)",
+            "prefix": "work_extension",
+            "found_col": false,
+            "extractAllOccurrences": false
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "FindReplace",
+          "params": {
+            "output": "",
+            "normalization": "EXACT",
+            "matching": "PATTERN",
+            "stopAfterFirstMatch": false,
+            "mapping": [
+              {
+                "from": "([x][0-9]*)",
+                "to": ""
+              }
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "work_phone"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        }
+      ],
+      "metaType": "GROUP",
+      "preview": false,
+      "disabled": false,
+      "name": "Cleanup work phone",
+      "alwaysShowComment": false,
+      "mainColor": "#90d931",
+      "secondaryColor": "#deeccb"
+    },
+    {
+      "steps": [
+        {
+          "type": "DateParser",
+          "params": {
+            "outCol": "account_created_on",
+            "lang": "en_US",
+            "timezone_id": "UTC",
+            "formats": [
+              "yyyy-MM-dd HH:mm:ss",
+              "yyyy-MM-dd",
+              "MM/dd/yyyy",
+              "MM/DD/yyyy"
+            ],
+            "appliesTo": "SINGLE_COLUMN",
+            "columns": [
+              "account created on"
+            ]
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        },
+        {
+          "type": "DateFormatter",
+          "params": {
+            "format": "MM/dd/yyyy",
+            "inCol": "account_created_on",
+            "outCol": "account_created_on_formatted",
+            "lang": "en_US",
+            "timezone_id": "UTC"
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        }
+      ],
+      "metaType": "GROUP",
+      "preview": false,
+      "disabled": false,
+      "name": "Cleanup account date",
+      "alwaysShowComment": false
+    },
+    {
+      "steps": [
+        {
+          "type": "EmailSplitter",
+          "params": {
+            "column": "work email"
+          },
+          "metaType": "PROCESSOR",
+          "preview": false,
+          "disabled": false,
+          "alwaysShowComment": false
+        }
+      ],
+      "metaType": "GROUP",
+      "preview": false,
+      "disabled": false,
+      "name": "Extract work email domain",
+      "alwaysShowComment": false
+    }
+  ],
+  "maxProcessedMemTableBytes": -1,
+  "origin": "PREPARE_RECIPE",
+  "columnsSelection": {
+    "mode": "ALL"
+  },
+  "coloring": {
+    "scheme": "MEANING_AND_STATUS",
+    "individualColumns": [],
+    "valueColoringMode": "HASH"
+  },
+  "sorting": [],
+  "analysisColumnData": {},
+  "explorationSampling": {
+    "selection": {
+      "maxStoredBytes": -1,
+      "filter": {
+        "distinct": false,
+        "enabled": false
+      },
+      "partitionSelectionMethod": "ALL",
+      "latestPartitionsN": 1,
+      "samplingMethod": "HEAD_SEQUENTIAL",
+      "maxRecords": 30000,
+      "targetRatio": 0.02,
+      "withinFirstN": -1,
+      "maxReadUncompressedBytes": -1
+    },
+    "autoRefreshSample": false,
+    "_refreshTrigger": 0
+  },
+  "vizSampling": {
+    "autoRefreshSample": false,
+    "_refreshTrigger": 0
+  },
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "globalSearchQuery": "",
+  "explorationFilters": [
+    {
+      "type": "global_search",
+      "$$hashKey": "3VV"
+    }
+  ],
+  "previewMode": "ALL_ROWS"
+}
